@@ -1,6 +1,4 @@
-const { json } = require("express");
-
-const express = express();
+const express = require("express");
 
 const server = express();
 
