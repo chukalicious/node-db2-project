@@ -13,6 +13,20 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "server error", error: err.message });
   }
 });
-//router.post()
+router.post("/", async (req, res) => {
+  const newCar = req.body;
+  if (!newCar.make || !newCar.model || !newCar.VIN) {
+    res
+      .status(404)
+      .json({ message: "Please include make, model and VIN to add a car" });
+  } else {
+    try {
+      const car = await Cars.add(newCar);
+      res.status(201).json(car);
+    } catch (err) {
+      res.status(500).json({ message: "server error", error: err.message });
+    }
+  }
+});
 
 module.exports = router;

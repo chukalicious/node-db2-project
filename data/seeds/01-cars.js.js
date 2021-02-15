@@ -1,13 +1,28 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex("table_name")
+  return knex("cars")
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex("table_name").insert([
-        { id: 1, make: "Honda", model: "CR-V", mileage: "200,000" },
-        { id: 2, make: "Honda", model: "Fit", mileage: "6,000" },
-        { id: 3, make: "Nissan", model: "Sentra", mileage: "250,999" },
+      return knex("cars").insert([
+        {
+          id: 1,
+          make: "Honda",
+          model: "CR-V",
+          VIN: "agdshrtgffibekw6675859375960704873",
+        },
+        {
+          id: 2,
+          make: "Honda",
+          model: "Fit",
+          VIN: "yqg4pytbg2308y5bgt20yb5g2y5bg",
+        },
+        {
+          id: 3,
+          make: "Nissan",
+          model: "Sentra",
+          VIN: "hgbhbgthg76879thrhi9tjrherooy",
+        },
       ]);
     });
 };

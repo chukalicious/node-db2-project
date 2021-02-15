@@ -12,4 +12,13 @@ function get() {
   return db("cars");
 }
 
-function add() {}
+function add(car) {
+  db("cars")
+    .insert(car)
+    .then((id) => res.status(201).json({ data: id[0] }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ message: "could not add car to the dealership at this moment" })
+    );
+}
